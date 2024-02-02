@@ -17,8 +17,7 @@ jobs:
       - name: Download IDE
         uses: suisei-cn/actions-download-file@v1.6.0
         with:
-          url: https://drive.usercontent.google.com/download?id=1RXFXBc5l3Uez3EjevRK4iBlY17gMGGt3&export=download&confirm=t&uuid=0d2782eb-d244-46e7-a771-eba6cddcf469
-          #target: ${{ runner.temp }}
+          url: https://drive.google.com/uc?id=1PCjyY15nmMv4K6X9C7XFasSYyWFF0yu2&export=download
           filename: stm32cubeide.7z
       - name: Dir list
         run: |
@@ -29,12 +28,11 @@ jobs:
               dir stm32cubeide
       - name: Pedals repo build
         run: |
-          dir
-          dir ..
-          dir ../..
-          dir ./stm32cubeide
           dir ./Sources
           mkdir workspace
           ./stm32cubeide/stm32cubeidec.exe --launcher.suppressErrors -nosplash -application org.eclipse.cdt.managedbuilder.core.headlessbuild -data ./workspace -import ./Sources -build SimPedals/Pedals-F070F6-Bootloader-Production
+          ./stm32cubeide/stm32cubeidec.exe --launcher.suppressErrors -nosplash -application org.eclipse.cdt.managedbuilder.core.headlessbuild -data ./workspace -import ./Sources -build SimPedals/Pedals-F070F6-Production
+          dir ./Sources
+          dir ./workspace
           
           
