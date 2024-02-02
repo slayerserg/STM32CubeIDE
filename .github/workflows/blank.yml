@@ -11,7 +11,7 @@ jobs:
         uses: suisei-cn/actions-download-file@v1.6.0
         with:
           url: https://downloader.disk.yandex.ru/disk/a6fa4155256d42af31245ec276c8b2398fac074478fa197032d50d58795e9bbd/65bd5cc5/WfWJFaxasWjxH4gPJNxii1p5dHXxD_reUIdc6rf9SPh9vui7mLjUNKKYMjqRLXkQQsB385cS2MdWX173XNq_Ew%3D%3D?uid=0&filename=st-stm32cubeide_1.11.2_x86_64.exe.zip&disposition=attachment&hash=NaYTHMHYKLylYcxEeq3bysLIX0uLQgvOd2SgmnWFxTAdjKFN565PLDocoaLVqh4Fq/J6bpmRyOJonT3VoXnDag%3D%3D%3A&limit=0&content_type=application%2Fzip&owner_uid=11500977&fsize=907597306&hid=14241434fa1dfa5cadd01e8043fa9eaa&media_type=compressed&tknv=v2
-          target: ${{ runner.temp }}\
+          target: ${{ runner.temp }}\stm32cubeide.exe.zip
       - name: Dir list
         run: |
           dir ${{ runner.temp }}
