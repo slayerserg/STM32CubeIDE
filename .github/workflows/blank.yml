@@ -36,6 +36,7 @@ jobs:
           mkdir build
           cp ./Sources/Pedals-F070F6-Bootloader-Production/SimPedals-Bootloader.bin ./build
           cp ./Sources/Pedals-F070F6-Production/SimPedals.bin ./build
+          dir ./build
       - name: Publish Artifact
         uses: actions/upload-artifact@v2
         with:
