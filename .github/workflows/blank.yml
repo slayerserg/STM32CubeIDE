@@ -33,6 +33,13 @@ jobs:
           ./stm32cubeide/stm32cubeidec.exe --launcher.suppressErrors -nosplash -application org.eclipse.cdt.managedbuilder.core.headlessbuild -data ./workspace -import ./Sources -build SimPedals/Pedals-F070F6-Bootloader-Production
           ./stm32cubeide/stm32cubeidec.exe --launcher.suppressErrors -nosplash -application org.eclipse.cdt.managedbuilder.core.headlessbuild -data ./workspace -import ./Sources -build SimPedals/Pedals-F070F6-Production
           dir ./Sources
-          dir ./workspace
+          mkdir build
+          cp ./Sources/Pedals-F070F6-Bootloader-Production/SimPedals-Bootloader.bin ./build
+          cp ./Sources/Pedals-F070F6-Production/SimPedals.bin ./build
+      - name: Publish Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: dev-build
+          path: ./build
           
           
