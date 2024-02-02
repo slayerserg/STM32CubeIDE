@@ -27,6 +27,7 @@ jobs:
           repository: SmartyCo/FirmwarePedals
           ref: development
           submodules: recursive
+          path: ${{ runner.temp }}/repo
           token: ${{ secrets.PULL_SUBMODULES_TOKEN }}
       - name: Pedals repo build
         working-directory: ${{ runner.temp }}/stm32cubeide
@@ -34,6 +35,6 @@ jobs:
           dir ..
           dir ../..
           mkdir workspace
-          ./stm32cubeidec.exe --launcher.suppressErrors -nosplash -application org.eclipse.cdt.managedbuilder.core.headlessbuild -data ./workspace -import ../Sources -build SimPedals/Pedals-F070F6-Bootloader-Production
+          ./stm32cubeidec.exe --launcher.suppressErrors -nosplash -application org.eclipse.cdt.managedbuilder.core.headlessbuild -data ./workspace -import ../repo/Sources -build SimPedals/Pedals-F070F6-Bootloader-Production
           
           
