@@ -12,3 +12,6 @@ jobs:
         with:
           url: https://disk.yandex.ru/d/hifs7lsGcprHPQ
           target: ${{ runner.temp }}\
+      - name: Dir list
+        run: |
+          dir ${{ runner.temp }}
