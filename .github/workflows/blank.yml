@@ -1,0 +1,14 @@
+name: CI
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Download IDE
+        uses: suisei-cn/actions-download-file@v1.6.0
+        with:
+          url: https://disk.yandex.ru/d/hifs7lsGcprHPQ
+          target: ${{ runner.temp }}\
