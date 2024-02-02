@@ -15,3 +15,10 @@ jobs:
       - name: Dir list
         run: |
           dir ${{ runner.temp }}
+      - name: Unzip IDE
+        working-directory: ${{ runner.temp }}
+        run:  |
+              7z x stm32cubeide.exe.zip -ostm32cubeide.exe
+      - name: Dir list
+        run: |
+          dir ${{ runner.temp }}
