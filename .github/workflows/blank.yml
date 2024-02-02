@@ -21,3 +21,14 @@ jobs:
         run:  |
               7z x stm32cubeide.7z -ostm32cubeide
               dir stm32cubeide
+      - name: Pedals repo checkout
+        uses: actions/checkout@v4
+        with:
+          repository: SmartyCo/FirmwarePedals
+          ref: development
+          submodules: recursive
+          token: ${{ secrets.PULL_SUBMODULES_TOKEN }}
+      - name: Pedals repo build
+        run: |
+          ./Pedals_build.bat
+          
