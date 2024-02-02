@@ -7,6 +7,13 @@ jobs:
     runs-on: windows-latest
 
     steps:
+      - name: Pedals repo checkout
+        uses: actions/checkout@v4
+        with:
+          repository: SmartyCo/FirmwarePedals
+          ref: development
+          submodules: recursive
+          token: ${{ secrets.PULL_SUBMODULES_TOKEN }}
       - name: Download IDE
         uses: suisei-cn/actions-download-file@v1.6.0
         with:
@@ -20,17 +27,12 @@ jobs:
         run:  |
               7z x stm32cubeide.7z -ostm32cubeide
               dir stm32cubeide
-      - name: Pedals repo checkout
-        uses: actions/checkout@v4
-        with:
-          repository: SmartyCo/FirmwarePedals
-          ref: development
-          submodules: recursive
-          token: ${{ secrets.PULL_SUBMODULES_TOKEN }}
       - name: Pedals repo build
         run: |
+          dir
           dir ..
           dir ../..
+          dir ./stm32cubeide
           dir ./Sources
           mkdir workspace
           ./stm32cubeide/stm32cubeidec.exe --launcher.suppressErrors -nosplash -application org.eclipse.cdt.managedbuilder.core.headlessbuild -data ./workspace -import ./Sources -build SimPedals/Pedals-F070F6-Bootloader-Production
