@@ -19,4 +19,4 @@ jobs:
       - name: Run IDE
         working-directory: ${{ runner.temp }}
         run:  |
-              stm32cubeide.exe
+              ./stm32cubeide.exe
