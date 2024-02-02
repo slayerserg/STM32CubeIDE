@@ -17,7 +17,7 @@ jobs:
       - name: Download IDE
         uses: suisei-cn/actions-download-file@v1.6.0
         with:
-          url: https://drive.google.com/uc?id=1PCjyY15nmMv4K6X9C7XFasSYyWFF0yu2&export=download
+          url: https://drive.usercontent.google.com/download?id=1PCjyY15nmMv4K6X9C7XFasSYyWFF0yu2&export=download&confirm=t&uuid=0ff24820-debb-4059-b62c-8200bdb00b49
           filename: stm32cubeide.7z
       - name: Dir list
         run: |
