@@ -10,14 +10,14 @@ jobs:
       - name: Download IDE
         uses: suisei-cn/actions-download-file@v1.6.0
         with:
-          url: https://drive.usercontent.google.com/download?id=10wRFbrSMF6SwYON1aouRotjvOva2qCua&export=download&confirm=t&uuid=4679c7ca-518d-4e7d-8e29-0c81c573f5f8
+          url: https://drive.usercontent.google.com/download?id=1RXFXBc5l3Uez3EjevRK4iBlY17gMGGt3&export=download&confirm=t&uuid=0d2782eb-d244-46e7-a771-eba6cddcf469
           target: ${{ runner.temp }}
-          filename: stm32cubeide.zip
+          filename: stm32cubeide.7z
       - name: Dir list
         run: |
           dir ${{ runner.temp }}
       - name: Unzip IDE
         working-directory: ${{ runner.temp }}
         run:  |
-              7z x stm32cubeide.zip -ostm32cubeide
+              7z x stm32cubeide.7z -ostm32cubeide
               dir stm32cubeide
