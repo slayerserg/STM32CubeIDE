@@ -11,13 +11,12 @@ jobs:
         uses: suisei-cn/actions-download-file@v1.6.0
         with:
           url: https://drive.usercontent.google.com/download?id=1RXFXBc5l3Uez3EjevRK4iBlY17gMGGt3&export=download&confirm=t&uuid=0d2782eb-d244-46e7-a771-eba6cddcf469
-          target: ${{ runner.temp }}
+          #target: ${{ runner.temp }}
           filename: stm32cubeide.7z
       - name: Dir list
         run: |
-          dir ${{ runner.temp }}
+          dir
       - name: Unzip IDE
-        working-directory: ${{ runner.temp }}
         run:  |
               7z x stm32cubeide.7z -ostm32cubeide
               dir stm32cubeide
@@ -27,14 +26,13 @@ jobs:
           repository: SmartyCo/FirmwarePedals
           ref: development
           submodules: recursive
-          path: ${{ runner.temp }}/repo
           token: ${{ secrets.PULL_SUBMODULES_TOKEN }}
       - name: Pedals repo build
-        working-directory: ${{ runner.temp }}/stm32cubeide
         run: |
           dir ..
           dir ../..
+          dir ./Sources
           mkdir workspace
-          ./stm32cubeidec.exe --launcher.suppressErrors -nosplash -application org.eclipse.cdt.managedbuilder.core.headlessbuild -data ./workspace -import ../repo/Sources -build SimPedals/Pedals-F070F6-Bootloader-Production
+          ./stm32cubeide/stm32cubeidec.exe --launcher.suppressErrors -nosplash -application org.eclipse.cdt.managedbuilder.core.headlessbuild -data ./workspace -import ./Sources -build SimPedals/Pedals-F070F6-Bootloader-Production
           
           
