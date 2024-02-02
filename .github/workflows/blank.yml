@@ -10,7 +10,7 @@ jobs:
       - name: Download IDE
         uses: suisei-cn/actions-download-file@v1.6.0
         with:
-          url: https://disk.yandex.ru/d/hifs7lsGcprHPQ
+          url: https://docviewer.yandex.ru/view/11500977/?*=x29Erqqv11owtSI3ZzYjj9tsgOd7InVybCI6InlhLWRpc2stcHVibGljOi8vTmFZVEhNSFlLTHlsWWN4RWVxM2J5c0xJWDB1TFFndk9kMlNnbW5XRnhUQWRqS0ZONTY1UExEb2NvYUxWcWg0RnEvSjZicG1SeU9Kb25UM1ZvWG5EYWc9PSIsInRpdGxlIjoic3Qtc3RtMzJjdWJlaWRlXzEuMTEuMl94ODZfNjQuZXhlLnppcCIsIm5vaWZyYW1lIjpmYWxzZSwidWlkIjoiMTE1MDA5NzciLCJ0cyI6MTcwNjg5NDI0ODAzMCwieXUiOiI3MDc5ODk5OTIxNjY0NTE3Mjg0In0%3D
           target: ${{ runner.temp }}\
       - name: Dir list
         run: |
